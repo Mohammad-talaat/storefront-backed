@@ -3,9 +3,12 @@ import express,{Application} from 'express'
 import morgan from 'morgan'
 import helmet from 'helmet'
 import errorMiddleware from './middleware/error.middleware'
+import config from './middleware/config'
+
+console.log(config);
 
 const app:Application = express()
-
+const port = config.port || 3000
 //------------------  middlewares ------------------//
 app.use(express.json())
 app.use(morgan('common')) 
@@ -18,8 +21,8 @@ app.get('/',(req,res)=>{
 
 app.use(errorMiddleware)
 
-app.listen(3000,()=>{
-    console.log('port is running on port 3000')
+app.listen(port,()=>{
+    console.log(`Server is running on port ${port}`)
 })
 
 export default app;
