@@ -1,7 +1,13 @@
 
 import express,{Application} from 'express'
-
+import morgan from 'morgan'
+import helmet from 'helmet'
 const app:Application = express()
+
+//------------------  middlewares ------------------//
+app.use(express.json())
+app.use(morgan('common')) 
+app.use(helmet())
 
 
 app.get('/',(req,res)=>{
