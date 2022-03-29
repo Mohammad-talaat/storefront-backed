@@ -71,4 +71,37 @@ describe('### Products API Endpoints', () => {
             token = userToken;
         }));
     });
+    describe('Test Products CRUD API methods', () => {
+        it('should create new product', () => __awaiter(void 0, void 0, void 0, function* () {
+            const res = yield request
+                .post('/api/v1/products/')
+                .set('Content-type', 'application/json')
+                .set('Authorization', `Bearer ${token}`)
+                .send({
+                name: "product 2",
+                price: 12
+            });
+            expect(res.status).toBe(200);
+            const { name, price } = res.body.data;
+            expect(name).toEqual("product 2");
+            expect(price).toBe(12);
+        }));
+        it('should get list of products', () => __awaiter(void 0, void 0, void 0, function* () {
+            const res = yield request
+                .get('/api/v1/products/')
+                .set('Content-type', 'application/json')
+                .set('Authorization', `Bearer ${token}`);
+            expect(res.status).toBe(200);
+            expect(res.body.data.length).toBe(2);
+        }));
+        it('should get product based on ID', () => __awaiter(void 0, void 0, void 0, function* () {
+            const res = yield request
+                .get(`/api/v1/products/${product.id}`)
+                .set('Content-type', 'application/json')
+                .set('Authorization', `Bearer ${token}`);
+            expect(res.status).toBe(200);
+            expect(res.body.data.id).toBe(product.id);
+            expect(res.body.data.name).toBe('product 1');
+        }));
+    });
 });

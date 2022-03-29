@@ -64,4 +64,39 @@ describe('### Products API Endpoints', () => {
         expect(email).toBe('test@test.com')
         token = userToken
       })})
-})  
+      describe('Test Products CRUD API methods', () => {
+        it('should create new product', async () => {
+          const res = await request
+            .post('/api/v1/products/')
+            .set('Content-type', 'application/json')
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+                name:"product 2",
+            price:12
+            } as product)
+          expect(res.status).toBe(200)
+          const { name, price } = res.body.data
+          expect(name).toEqual("product 2")
+          expect(price).toBe(12)
+        })
+    
+        it('should get list of products', async () => {
+          const res = await request
+            .get('/api/v1/products/')
+            .set('Content-type', 'application/json')
+            .set('Authorization', `Bearer ${token}`)
+          expect(res.status).toBe(200)
+          expect(res.body.data.length).toBe(2)
+        })
+    
+        it('should get product based on ID', async () => {
+          const res = await request
+            .get(`/api/v1/products/${product.id}`)
+            .set('Content-type', 'application/json')
+            .set('Authorization', `Bearer ${token}`)
+          expect(res.status).toBe(200)
+          expect(res.body.data.id).toBe(product.id)
+          expect(res.body.data.name).toBe('product 1')
+        })
+      })
+    })
