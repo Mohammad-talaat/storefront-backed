@@ -9,7 +9,9 @@ const {
     POSTGRES_DB,
     POSTGRES_DB_TEST,
     POSTGRES_USER,
-    POSTGRES_PASSWORD
+    POSTGRES_PASSWORD,
+    BCRYPT_PASSWORD,
+    SALT_ROUNDS
  } = process.env;
 
 export default {
@@ -18,5 +20,7 @@ export default {
   dbHost:POSTGRES_HOST,
   dbPort:POSTGRES_PORT,
   user:POSTGRES_USER,
-  dbPass:POSTGRES_PASSWORD
+  dbPass:POSTGRES_PASSWORD,
+  pepper: BCRYPT_PASSWORD,
+  salt:SALT_ROUNDS
 };

@@ -3,7 +3,7 @@ import express,{Application} from 'express'
 import morgan from 'morgan'
 import helmet from 'helmet'
 import errorMiddleware from './middleware/error.middleware'
-import config from './middleware/config'
+import config from './config'
 import db from './database'
 import routes from './routes'
 
