@@ -5,7 +5,7 @@ import helmet from 'helmet'
 import errorMiddleware from './middleware/error.middleware'
 import config from './middleware/config'
 import db from './database'
-import { Client } from 'pg'
+import routes from './routes'
 
 console.log(config);
 
@@ -28,6 +28,8 @@ db.connect().then(client => {
     })
 })
 
+//------------------ Routes ---------------------//
+app.use('/api/v1',routes)
 
 app.get('/',(req,res)=>{
     res.send('<h1>Welcome to our app</h1>')
