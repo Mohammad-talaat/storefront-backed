@@ -39,7 +39,7 @@ describe('User API Endpoints', () => {
         yield connection.query(sql);
         connection.release();
     }));
-    describe('Test Authenticate methods', () => {
+    describe('### Test Authenticate methods', () => {
         it('should be able to authenticate to get token', () => __awaiter(void 0, void 0, void 0, function* () {
             const res = yield request
                 .post('/api/v1/users/authenticate')
@@ -65,7 +65,7 @@ describe('User API Endpoints', () => {
             expect(res.status).toBe(401);
         }));
     });
-    describe('Test CRUD API methods', () => {
+    describe('### Test CRUD API methods', () => {
         it('should create new user', () => __awaiter(void 0, void 0, void 0, function* () {
             const res = yield request
                 .post('/api/v1/users/')

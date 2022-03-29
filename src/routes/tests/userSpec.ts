@@ -31,7 +31,7 @@ describe('User API Endpoints', () => {
     connection.release()
   })
 
-  describe('Test Authenticate methods', () => {
+  describe('### Test Authenticate methods', () => {
     it('should be able to authenticate to get token', async () => {
       const res = await request
         .post('/api/v1/users/authenticate')
@@ -59,7 +59,7 @@ describe('User API Endpoints', () => {
     })
   })
 
-  describe('Test CRUD API methods', () => {
+  describe('### Test CRUD API methods', () => {
     it('should create new user', async () => {
       const res = await request
         .post('/api/v1/users/')
