@@ -8,7 +8,7 @@
     "dev": "nodemon src/index.ts",
     "build": "tsc",
     "start": "npm run build && node dist/index.js",
-    "test": "npm run build && jasmine",
+    "test": "set NODE_ENV=test&& tsc && db-migrate up --env test && jasmine && db-migrate reset",
     "migration:up": "db-migrate up",
     "migration:down": "db-migrate down",
     "lint": "eslint src/**/*.ts",

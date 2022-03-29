@@ -18,7 +18,6 @@ const request = (0, supertest_1.default)(index_1.default);
 describe('Test the index enpoint', () => {
     it('Get the / endpoint', () => __awaiter(void 0, void 0, void 0, function* () {
         const response = yield request.get('/');
-        console.log(response);
         expect(response.status).toBe(200);
     }));
 });
