@@ -11,7 +11,8 @@ const {
     POSTGRES_USER,
     POSTGRES_PASSWORD,
     BCRYPT_PASSWORD,
-    SALT_ROUNDS
+    SALT_ROUNDS,
+    JWT_TOKEN
  } = process.env;
 
 export default {
@@ -22,5 +23,6 @@ export default {
   user:POSTGRES_USER,
   dbPass:POSTGRES_PASSWORD,
   pepper: BCRYPT_PASSWORD,
-  salt:SALT_ROUNDS
+  salt:SALT_ROUNDS,
+  jwtToken:JWT_TOKEN
 };
