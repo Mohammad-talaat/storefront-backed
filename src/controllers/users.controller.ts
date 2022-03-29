@@ -25,7 +25,7 @@ export const updateUser = async (
     next: NextFunction
   ) => {
     try {
-      const user = await userModel.updateUser(req.body)
+      const user = await userModel.updateUser(req.params.id,req.body)
       res.json({
         status: 'success',
         data: user,

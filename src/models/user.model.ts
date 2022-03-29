@@ -57,7 +57,7 @@ class UserModel {
         }
     
 // ------------------ update user --------------------//
-async updateUser(u: User): Promise<User> {
+async updateUser(id:string,u: User): Promise<User> {
     try {
       const connection = await db.connect()
       const sql = `UPDATE users 
@@ -72,7 +72,7 @@ async updateUser(u: User): Promise<User> {
         u.last_name,
         hashPassword(u.password as string),
         // u.password,
-        u.id,
+        id
       ])
       connection.release()
       return result.rows[0]
