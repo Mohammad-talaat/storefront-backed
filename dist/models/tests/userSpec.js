@@ -73,7 +73,7 @@ describe('User Model', () => {
         }));
         it('Get Many method should return All available users in DB', () => __awaiter(void 0, void 0, void 0, function* () {
             const users = yield userModel.getAllUsers();
-            expect(users.length).toBe(2);
+            expect(users.length).toBe(3); // 3 because in the orders we created another userSpec
         }));
         it('Get One method should return testUser when called with ID', () => __awaiter(void 0, void 0, void 0, function* () {
             const returnedUser = yield userModel.getUser(user.id);

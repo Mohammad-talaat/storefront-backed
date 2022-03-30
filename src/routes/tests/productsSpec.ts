@@ -86,7 +86,7 @@ describe('### Products API Endpoints', () => {
             .set('Content-type', 'application/json')
             .set('Authorization', `Bearer ${token}`)
           expect(res.status).toBe(200)
-          expect(res.body.data.length).toBe(2)
+          expect(res.body.data.length).toBe(3) // 3 because we created another product in order spec
         })
     
         it('should get product based on ID', async () => {

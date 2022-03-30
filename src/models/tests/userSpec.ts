@@ -40,6 +40,7 @@ describe('User Model', () => {
       password: 'test123',
     } as User
 
+
     beforeAll(async () => {
       const createdUser = await userModel.createUser(user)
       user.id = createdUser.id
@@ -72,7 +73,7 @@ describe('User Model', () => {
 
     it('Get Many method should return All available users in DB', async () => {
       const users = await userModel.getAllUsers()
-      expect(users.length).toBe(2)
+      expect(users.length).toBe(3) // 3 because in the orders we created another userSpec
     })
 
     it('Get One method should return testUser when called with ID', async () => {
