@@ -92,7 +92,7 @@ describe('### Products API Endpoints', () => {
                 .set('Content-type', 'application/json')
                 .set('Authorization', `Bearer ${token}`);
             expect(res.status).toBe(200);
-            expect(res.body.data.length).toBe(2);
+            expect(res.body.data.length).toBe(3); // 3 because we made another one in the orderSpec
         }));
         it('should get product based on ID', () => __awaiter(void 0, void 0, void 0, function* () {
             const res = yield request
